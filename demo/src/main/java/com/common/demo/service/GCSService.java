@@ -13,7 +13,7 @@ public interface GCSService {
 
     ResponseEntity<String> delete(Integer id);
 
-    Page<Person> getAllPersonsByPaged(Pageable pageable, String criteriaForFirstName, String criteriaForLastName);
+    Page<Person> getAllPersonsByPaged(Pageable pageable, String name, String status);
 
     ResponseEntity<String> update(Person person);
 
