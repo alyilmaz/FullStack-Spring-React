@@ -1,2 +1,4 @@
 server:
   port: 8080
+
+source_url: "https://storage.googleapis.com/king-airnd-recruitment-sandbox-data/data.json"
