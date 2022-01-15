@@ -1,14 +1,15 @@
 import React from "react";
 import Pagination from "./Pagination";
 import Searching from "./Searching";
+import "./css/DataTable.css"
 
 const Table = ({ columns, rows, rowsPerPage, totalPages, count, page, 
-                handleChangePage,order, orderBy, handleRequestSort,
+                handleChangePage,order, orderBy, handleRequestSort,tableName,
                 searchingObjects, filteringObjects, handleChangeRowsPerPage }) => {
 
     return (
-      <>  
-      <Searching searchingObjects={searchingObjects} filteringObjects={filteringObjects}/>
+      <>
+      <Searching searchingObjects={searchingObjects} filteringObjects={filteringObjects} tableName={tableName}/>
       <table>
         <thead>
           <tr>
@@ -16,9 +17,9 @@ const Table = ({ columns, rows, rowsPerPage, totalPages, count, page,
       const sortIcon = () => {
         if (column.id === orderBy) {
           if (order === 'asc') {
-            return '^'
+            return <i class="arrow up"></i>
           }
-          return '+'
+          return <i class="arrow down"></i>
         } else {
           return '️-'
         }
@@ -26,8 +27,8 @@ const Table = ({ columns, rows, rowsPerPage, totalPages, count, page,
 
       return (
         <th key={column.id}>
-          <span>{column.label}</span>
-          <button disabled={!column.sortable} onClick={() => handleRequestSort(column.id)}>{sortIcon()}</button>
+          <span >{column.label}</span>
+          {column.sortable?<span className="sort-button"><button onClick={() => handleRequestSort(column.id)}>{sortIcon()}</button></span>:<div></div>}
         </th>
       )
     })}
@@ -38,9 +39,6 @@ const Table = ({ columns, rows, rowsPerPage, totalPages, count, page,
             return (
               <tr key={row.id}>
                 {columns.map(column => {
-                  if (column.format) {
-                    return <td key={column.id}>{column.format(row[column.id])}</td>
-                  }
                   return <td key={column.id}>{row[column.id]}</td>
                 })}
               </tr>

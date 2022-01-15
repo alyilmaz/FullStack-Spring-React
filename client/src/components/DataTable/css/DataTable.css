@@ -1,0 +1,150 @@
+#search {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 16px;
+    padding: .5em;;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+
+.tableName{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: .2em;
+    padding-left: 0%;
+    margin-right: .5em;
+}
+
+th {
+    padding-top: .5em;;
+    padding-bottom: .5em;;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+td, th {
+    border: 1px solid #ddd;
+    padding: .5em;;
+  }
+  
+ tr:nth-child(even){background-color: #f2f2f2;}
+  
+ tr:hover {background-color: #ddd;}
+
+
+ /* Status Dropdown */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1px; 
+    margin-left: 50px;
+  }
+  
+  .custom-dropdown select {
+    background-color: #1abc9c;
+    color: #fff;
+    font-size: inherit;
+    padding: .5em;
+    padding-right: 2.5em; 
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button; /* hide default arrow in chrome OSX */
+  }
+  
+  .custom-dropdown::before,
+  .custom-dropdown::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .custom-dropdown::after { 
+    content: "\25BC";
+    height: 1em;
+    font-size: .625em;
+    line-height: 1;
+    right: 1.2em;
+    top: 50%;
+    margin-top: -.5em;
+  }
+  
+  .custom-dropdown::before { 
+    width: 2em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  .custom-dropdown select[disabled] {
+    color: rgba(0,0,0,.3);
+  }
+  
+  .custom-dropdown select[disabled]::after {
+    color: rgba(0,0,0,.1);
+  }
+  
+  .custom-dropdown::before {
+    background-color: rgba(0,0,0,.15);
+  }
+  
+  .custom-dropdown::after {
+    color: rgba(0,0,0,.4);
+  }
+  
+  .searching-groups div {
+    float: left;
+    clear: none; 
+}
+
+.pagination-groups div{
+    float: left;
+    clear: none; 
+}
+
+.page-size{
+    padding-left: 10px;
+    
+}
+.page-size select{
+    height: 30px;
+    border-radius: 7px;
+}
+
+.pagination-groups div p{
+    font-size: 12px;
+    padding-left: 80px;
+    padding-top: 0;
+    margin-top: 10px;
+}
+
+.sort-button button{
+    background-color: #1abc9c;;
+    margin-left: 10px;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+

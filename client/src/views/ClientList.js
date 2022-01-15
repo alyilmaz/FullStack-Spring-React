@@ -89,7 +89,7 @@ const filteringObjects = [
     <div>
         <DataTable columns={headCells} rows={rows} rowsPerPage={rowsPerPage} totalPages={receivedData.totalPages}
                    count={receivedData.totalElements} page= {page} handleChangePage= {handleChangePage}
-                   order={order} orderBy={orderBy} handleRequestSort = {handleRequestSort} filteringObjects={filteringObjects}
+                   order={order} orderBy={orderBy} handleRequestSort = {handleRequestSort} filteringObjects={filteringObjects} tableName= {"Person Table"}
                    searchingObjects={searchingObjects} handleChangeRowsPerPage = {handleChangeRowsPerPage}/>
     </div>
   );
