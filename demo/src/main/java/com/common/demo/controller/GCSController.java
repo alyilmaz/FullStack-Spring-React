@@ -20,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "/gcs")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class GCSController implements GCSControllerDoc {
 
     private final GCSService gcsService;
