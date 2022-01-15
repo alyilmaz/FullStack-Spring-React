@@ -79,8 +79,10 @@ public class GCSServiceImpl implements GCSService {
             filteredUserList = filteredUserList.stream().sorted(new Comparator<Person>() {
                 @Override
                 public int compare(Person o1, Person o2) {
-                    return isAscending ? o1.getId().toString().compareTo(o2.getId().toString()) :
-                            o1.getId().toString().compareTo(o2.getId().toString()) * (-1);
+                    if(Integer.valueOf(o1.getId().toString()) > Integer.valueOf((o2.getId().toString()))){
+                        return isAscending ? 1 : -1;
+                    }
+                    return isAscending ? -1 : 1;
                 }
             }).collect(Collectors.toList());
         }
