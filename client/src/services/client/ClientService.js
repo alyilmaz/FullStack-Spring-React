@@ -1,8 +1,8 @@
-const mainUrl = "http://localhost:8080/gcs";
+import { mainUrl } from "../../Constant";
 
 class ClientService {
     getClient(serviceRequest, queryParams, resolve,reject){
-        serviceRequest.get(mainUrl + '/getPeople' , queryParams, undefined  ,  resolve, reject)
+        serviceRequest.get(mainUrl + '/gcs/getPeople' , queryParams, undefined  ,  resolve, reject)
     }
 }
 
