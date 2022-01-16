@@ -93,11 +93,6 @@ public class GCSServiceImpl implements GCSService {
             filteredUserList = filteredUserList.stream().sorted(new Comparator<Person>() {
                 @Override
                 public int compare(Person o1, Person o2) {
-                    if(o1.getCreatedOn() == null)
-                        return -1;
-                    if (o2.getCreatedOn() == null)
-                        return 1;
-
                     return isAscending ? o1.getCreatedOn().toString().compareTo(o2.getCreatedOn().toString()) :
                             o1.getCreatedOn().toString().compareTo(o2.getCreatedOn().toString()) * (-1);
                     }

@@ -6,7 +6,7 @@ import ServiceRequest from '../services/ServiceRequest';
 
 export default function ClientList() {
   const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('name');
+  const [orderBy, setOrderBy] = useState('id');
   const [searchByName, setSearchByName] = useState('');
   const [filterByStatus, setFilterByStatus] = useState('');
   const [page, setPage] = useState(0);

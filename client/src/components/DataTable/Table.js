@@ -39,6 +39,8 @@ const Table = ({ columns, rows, rowsPerPage, totalPages, count, page,
             return (
               <tr role="row" key={row.id}>
                 {columns.map(column => {
+                  if(column.id ==="createdOn"){return <td role="cell" key={column.id}>{row[column.id].split("T")[0]}</td>}
+
                   return <td role="cell" key={column.id}>{row[column.id]}</td>
                 })}
               </tr>
