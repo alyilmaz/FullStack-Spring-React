@@ -12,9 +12,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -50,19 +52,19 @@ public class GCSServiceImpl implements GCSService {
         List<Person> userList = userListCache.get("userList", List.class);
         Stream<Person> userStream = userList.stream();
 
-        if (!StringUtils.isEmpty(name)) {
+        if (!name.isEmpty()) {
             userStream = userStream.filter(u -> u.getName().toString().toLowerCase(Locale.ROOT)
                     .contains(name.toLowerCase(Locale.ROOT)));
         }
 
-        if (!StringUtils.isEmpty(status)) {
+        if (!status.isEmpty()) {
             userStream = userStream.filter(u -> u.getStatus().toString().toLowerCase(Locale.ROOT)
                     .contains(status.toLowerCase(Locale.ROOT)));
         }
 
         List<Person> filteredUserList = userStream.collect(Collectors.toList());
 
-        /* SORT */
+        /* SORT Processing*/
         final boolean isAscending = pageable.getSort().get().collect(Collectors.toList()).get(0).isAscending();
         Sort.Order order = pageable.getSort().get().collect(Collectors.toList()).get(0);
         if (order.getProperty().equals("name")) {
@@ -150,7 +152,28 @@ public class GCSServiceImpl implements GCSService {
         Object data = ((LinkedHashMap) body).get("output");
         List<Person> people = new ArrayList<>();
         ((ArrayList) data).stream().forEach(item ->{
-            people.add(new Person(((LinkedHashMap)item).get("id") ,((LinkedHashMap) item).get("status"),((LinkedHashMap)item).get("createdOn"), ((LinkedHashMap)item).get("name") ,((LinkedHashMap)item).get("description") ,((LinkedHashMap)item).get("delta")));
+            //if the createdOn variable is null or "0" then it set as 5 years ago, otherwise the data is convert t
+            // OffsetDate object
+            OffsetDateTime createdOn ;
+            if(((LinkedHashMap)item).get("createdOn")==null || ((LinkedHashMap)item).get("createdOn").toString().equals("0")){
+                createdOn = OffsetDateTime.now().minusYears(5L);
+            }else if(((LinkedHashMap)item).get("createdOn").toString().indexOf("T")>-1){
+
+                try {
+                    createdOn = OffsetDateTime.parse(((LinkedHashMap)item).get("createdOn").toString());
+                }catch (Exception e){
+                    createdOn = OffsetDateTime.now().minusYears(5L);
+                }
+            }else {
+                try {
+                    Instant instant = Instant.ofEpochMilli(Long.parseLong(((LinkedHashMap)item).get("createdOn").toString()));
+                    createdOn = OffsetDateTime.ofInstant(instant, ZoneId.of("UTC"));
+                }catch (Exception e){
+                    createdOn = OffsetDateTime.now().minusYears(5L);
+                }
+
+            }
+            people.add(new Person(((LinkedHashMap)item).get("id") ,((LinkedHashMap) item).get("status"),createdOn, ((LinkedHashMap)item).get("name") ,((LinkedHashMap)item).get("description") ,((LinkedHashMap)item).get("delta")));
         });
         return people;
     }

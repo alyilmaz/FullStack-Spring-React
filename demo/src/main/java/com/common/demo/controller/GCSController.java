@@ -14,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -45,8 +43,6 @@ public class GCSController implements GCSControllerDoc {
                 "asc".equalsIgnoreCase(sortDirection) ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending());
         Page<Person> list =
                 gcsService.getAllPersonsByPaged(pageable, name, status==null?"":status.toString());
-
-
         return new ResponseEntity<>(new PageableList<>(list), HttpStatus.OK);
     }
 
