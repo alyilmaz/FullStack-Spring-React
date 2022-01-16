@@ -10,8 +10,8 @@ const Table = ({ columns, rows, rowsPerPage, totalPages, count, page,
     return (
       <>
       <Searching searchingObjects={searchingObjects} filteringObjects={filteringObjects} tableName={tableName}/>
-      <table>
-        <thead>
+      <table role="table">
+        <thead role="rowgroup">
           <tr>
           {columns?.map(column => {
       const sortIcon = () => {
@@ -34,12 +34,12 @@ const Table = ({ columns, rows, rowsPerPage, totalPages, count, page,
     })}
           </tr>
         </thead>
-        <tbody>
+        <tbody role="rowgroup">
           {rows?.map(row => {
             return (
-              <tr key={row.id}>
+              <tr role="row" key={row.id}>
                 {columns.map(column => {
-                  return <td key={column.id}>{row[column.id]}</td>
+                  return <td role="cell" key={column.id}>{row[column.id]}</td>
                 })}
               </tr>
             )

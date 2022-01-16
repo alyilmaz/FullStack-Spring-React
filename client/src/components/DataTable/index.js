@@ -7,7 +7,7 @@ const index = ({columns, rows, rowsPerPage, totalPages, count, page, handleChang
                 order, orderBy, handleRequestSort,searchingObjects, filteringObjects, handleChangeRowsPerPage }) =>{
     
     return(
-        <div class="tab">
+        <div class="tap">
   <Table  columns={columns} rows={rows} rowsPerPage = {rowsPerPage} 
                     totalPages = {totalPages} count={count} page={page} 
                     handleChangePage={handleChangePage} order={order} 
