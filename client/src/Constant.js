@@ -1,1 +1,1 @@
-export const mainUrl = `/king`;
+export const mainUrl = `http://127.0.0.1:8080`;
