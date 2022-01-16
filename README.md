@@ -23,7 +23,7 @@ For spring boot application:
 
 to create  spring boot container:
  ```sh
-   ./gradlew bootjar
+   ./gradlew bootJar
    docker build -t demo-service .
    docker run -d -p 8080:8080  -t  demo-service 
   ```
