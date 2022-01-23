@@ -1,220 +1,81 @@
-#search {
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    width: 100%;
-    font-size: 16px;
-    padding: .5em;;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-  }
-
-.tableName{
-    font-size: x-large;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    padding-top: .2em;
-    padding-left: 0%;
-    margin-right: .5em;
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-th {
-    padding-top: .5em;;
-    padding-bottom: .5em;;
-    text-align: left;
-    background-color: #A0A0A0;
-    color: white;
-  }
+th, td {
+  text-align: left;
+  padding: 8px;
+  max-width: 150px;
+  min-width: 100px;
+  max-height: 20px;
+  min-height: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
 
-td, th {
-    border: 1px solid #ddd;
-    padding: .5em;;
-  }
+tr:hover {background-color: rgb(199, 201, 197);}
 
-  td{
-    max-width: 200px;
-    min-width: 100px;
-    max-height: 20px;
-    min-height: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
- tr:nth-child(even){background-color: #f2f2f2;}
-  
- tr:hover {background-color: #ddd;}
+.table-container {
+  overflow-x:auto;
+}
 
+tr:nth-child(even) {background-color: #f2f2f2;}
 
- /* Status Dropdown */
-.custom-dropdown {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 1px; 
-    margin-left: 50px;
-  }
-  
-  .custom-dropdown select {
-    background-color: #606060;
-    color: #fff;
-    font-size: inherit;
-    padding: .5em;
-    padding-right: 2.5em; 
-    border: 0;
-    margin: 0;
-    border-radius: 3px;
-    text-indent: 0.01px;
-    text-overflow: '';
-    -webkit-appearance: button; /* hide default arrow in chrome OSX */
-  }
-  
-  .custom-dropdown::before,
-  .custom-dropdown::after {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-  }
-  
-  .custom-dropdown::after { 
-    content: "\25BC";
-    height: 1em;
-    font-size: .625em;
-    line-height: 1;
-    right: 1.2em;
-    top: 50%;
-    margin-top: -.5em;
-  }
-  
-  .custom-dropdown::before { 
-    width: 2em;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border-radius: 0 3px 3px 0;
-  }
-  
-  .custom-dropdown select[disabled] {
-    color: rgba(0,0,0,.3);
-  }
-  
-  .custom-dropdown select[disabled]::after {
-    color: rgba(0,0,0,.1);
-  }
-  
-  .custom-dropdown::before {
-    background-color: rgba(0,0,0,.15);
-  }
-  
-  .custom-dropdown::after {
-    color: rgba(0,0,0,.4);
-  }
-  
-  .searching-groups div {
-    float: left;
-    clear: none; 
+.page-button {
+  background-color: #ffffff; /* Green */
+  border: none;
+  color: rgb(25, 84, 172);
+  padding: 3px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 .pagination-groups div{
-    float: left;
-    clear: none; 
+  float: left;
+  clear: none; 
 }
 
-.page-size{
-    padding-left: 10px;
-    
-}
 .page-size select{
-    height: 30px;
-    border-radius: 7px;
+  height: 30px;
+  font-size: 16px;
+  color: rgb(25, 84, 172);;
+  border: none;
 }
 
 .pagination-groups div p{
-    font-size: 12px;
-    padding-left: 80px;
-    padding-top: 0;
-    margin-top: 10px;
+  margin-top: 8px;
+  margin-left: 40px;
+  font-weight: bold;
+  color: rgb(107, 106, 105);
+  font-size: 12px;
 }
 
-.pagination-groups .pagination button{
-  height: 30px;
-  border-radius: 7px;
-  background-color: cornsilk;
-}
+
 
 .sort-button button{
-    background-color: #1abc9c;;
-    margin-left: 10px;
+  background-color: #ffffff; /* Green */
+  border: none;
 }
 
-
-
 .arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-  }
-  
-  .up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }
-  
-  .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
 
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
 
-  @media 
-  only screen and (max-width: 760px),
-  (min-device-width: 768px) and (max-device-width: 1024px)  {
-  
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr { 
-      display: block; 
-    }
-    
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr { 
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-    
-    tr { border: 1px solid #ccc; }
-    
-    td { 
-      /* Behave  like a "row" */
-      border: none;
-      border-bottom: 1px solid #eee; 
-      position: relative;
-      padding-left: 50%; 
-    }
-    
-    td:before { 
-      /* Now like a table header */
-      position: absolute;
-      /* Top/left values mimic padding */
-      top: 6px;
-      left: 6px;
-      width: 45%; 
-      padding-right: 10px; 
-      white-space: nowrap;
-    }
-    
-    /*
-    Label the data
-    */
-    td:nth-of-type(1):before { content: "ID"; }
-    td:nth-of-type(2):before { content: "Status"; }
-    td:nth-of-type(3):before { content: "Created On"; }
-    td:nth-of-type(4):before { content: "Name"; }
-    td:nth-of-type(5):before { content: "Description"; }
-    td:nth-of-type(6):before { content: "Delta"; }
-  }
-  
-
-  
-
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

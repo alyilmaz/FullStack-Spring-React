@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import DataTable from "../components/DataTable";
+import DropDown from "../components/DropDown/DropDown";
+import SearchingField from "../components/SearchingField/SearchingField";
 import ClientService from "../services/client/ClientService";
 import ServiceRequest from '../services/ServiceRequest';
 
@@ -28,27 +30,8 @@ export default function ClientList() {
 
   useEffect(() => {
     getData(page,rowsPerPage,orderBy,order,searchByName, filterByStatus)
-  }, []);
+  }, [page, rowsPerPage, order, orderBy, searchByName, filterByStatus]);
 
-  const handleRequestSort = (property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
-    setPage(0);
-    getData(0, rowsPerPage, property, isAsc ? 'desc' : 'asc', searchByName, filterByStatus);
-  };
-
-  const handleChangePage = (newPage) => {
-    setPage(newPage);
-    getData(newPage, rowsPerPage, orderBy, order, searchByName, filterByStatus);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(event.target.value);
-    getData(0, event.target.value, orderBy, order, searchByName, filterByStatus);
-    setPage(0);
-  };
-  
   const headCells = [
     { id: "id", sortable: true,   label: "ID" },
     { id: "status",     sortable: false,   label: "Status" },
@@ -58,39 +41,17 @@ export default function ClientList() {
     { id: "delta",     sortable: false,  label: "Delta" },
   ];
 
-
-const handleSearchingForName = (event) => {
-      setSearchByName(event);
-      setPage(0);
-      getData(0, rowsPerPage,orderBy, order, event, filterByStatus);
-}
-
-const handleFilteringForStatus = (event) => {
-      setFilterByStatus(event.target.value);
-      setPage(0);
-      getData(0, rowsPerPage,orderBy, order, searchByName, event.target.value);
-}
-
-const searchingObjects = [
-  {
-    id:"name", placeHolder: "Searching name", handler: handleSearchingForName
-  },
-]
-
-const filteringObjects = [
-  {
-    id:"status", placeHolder: "Select Status", handler: handleFilteringForStatus, options:[{id:"", label:"All"},
-    {id:"COMPLETED", label:"COMPLETED"},{id:"ERROR", label:"ERROR"},{id:"CANCELED", label:"CANCELED"}]
-  },
-]
-
+  const statusOptions = [{id:"", label:"All"},
+  {id:"COMPLETED", label:"COMPLETED"},{id:"ERROR", label:"ERROR"},{id:"CANCELED", label:"CANCELED"}];
 
   return (
     <div>
-        <DataTable columns={headCells} rows={rows} rowsPerPage={rowsPerPage} totalPages={receivedData.totalPages}
-                   count={receivedData.totalElements} page= {page} handleChangePage= {handleChangePage}
-                   order={order} orderBy={orderBy} handleRequestSort = {handleRequestSort} filteringObjects={filteringObjects} tableName= {"Person Table"}
-                   searchingObjects={searchingObjects} handleChangeRowsPerPage = {handleChangeRowsPerPage}/>
+      <SearchingField placeholder= "Searching Name.." onChange={(event) => {setSearchByName(event); setPage(0); }}/>
+      <DropDown  onChange= {(event) =>{setFilterByStatus(event); setPage(0)}} placeholder = "STATUS  " options = {statusOptions}/>
+      <DataTable columns={headCells} rows={rows} rowsPerPage={rowsPerPage} totalPages={receivedData.totalPages}
+                   count={receivedData.totalElements} page= {page} setPage= {setPage} setOrderBy = {setOrderBy}
+                   order={order} orderBy={orderBy} tableName= {"Person Table"}
+                   setRowsPerPage = {setRowsPerPage} setOrder = {setOrder}/>
     </div>
   );
 }
