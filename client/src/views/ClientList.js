@@ -1,10 +1,11 @@
 import React, {useState, useEffect } from "react";
 import DataTable from "../components/DataTable";
 import DropDown from "../components/DropDown/DropDown";
+import Grid from "../components/Grid/Grid";
 import SearchingField from "../components/SearchingField/SearchingField";
 import ClientService from "../services/client/ClientService";
 import ServiceRequest from '../services/ServiceRequest';
-
+import "./clientlist.css";
 
 export default function ClientList() {
   const [order, setOrder] = useState('asc');
@@ -45,13 +46,27 @@ export default function ClientList() {
   {id:"COMPLETED", label:"COMPLETED"},{id:"ERROR", label:"ERROR"},{id:"CANCELED", label:"CANCELED"}];
 
   return (
-    <div>
-      <SearchingField placeholder= "Searching Name.." onChange={(event) => {setSearchByName(event); setPage(0); }}/>
-      <DropDown  onChange= {(event) =>{setFilterByStatus(event); setPage(0)}} placeholder = "STATUS  " options = {statusOptions}/>
+    <Grid>
+     
+    <div className="item4">
+      <div className="container">
+      <div className="filter-component">
+        <span>
+          <SearchingField placeholder= "Searching Name.." onChange={(event) => {setSearchByName(event); setPage(0); }}/>
+        </span> 
+        <span>
+          <DropDown  onChange= {(event) =>{setFilterByStatus(event); setPage(0)}} placeholder = "STATUS  " options = {statusOptions}/>
+        </span>
+      </div>
+      <div className="table">
       <DataTable columns={headCells} rows={rows} rowsPerPage={rowsPerPage} totalPages={receivedData.totalPages}
                    count={receivedData.totalElements} page= {page} setPage= {setPage} setOrderBy = {setOrderBy}
                    order={order} orderBy={orderBy} tableName= {"Person Table"}
                    setRowsPerPage = {setRowsPerPage} setOrder = {setOrder}/>
+      </div>
+      </div>
     </div>
+  
+    </Grid>
   );
 }

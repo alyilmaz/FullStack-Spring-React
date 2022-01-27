@@ -10,23 +10,23 @@ const TableHead = ({order, orderBy, setOrder, setOrderBy, setPage,  columns}) =>
 
     return(
         <thead >
-        <tr>
+        <tr data-testid="row">
         {columns?.map(column => {
             const sortIcon = () => {
                 if (column.id === orderBy) {
                     if (order === 'asc') {
-                        return <i class="arrow up"></i>
+                        return <i data-testid="up" className="arrow up"></i>
                     }
-                    return <i class="arrow down"></i>
+                    return <i data-testid="down" className="arrow down"></i>
                 } else {
                     return '️-'
                 }
         }
 
     return (
-      <th key={column.id}>
-        <span >{column.label}</span>
-        {column.sortable?<span className="sort-button"><button onClick={() => handleRequestSort(column.id)}>{sortIcon()}</button></span>:<div></div>}
+      <th  data-testid="table-head"  key={column.id}>
+        <span data-testid="label" >{column.label}</span>
+        {column.sortable?<span className="sort-button"><button data-testid="sort-button" onClick={() => handleRequestSort(column.id)}>{sortIcon()}</button></span>:null}
       </th>
     )
   })}

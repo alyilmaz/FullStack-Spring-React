@@ -5,7 +5,7 @@
     height: 20px;
     width: 150px;
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 10px 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@
 }
 
 .search-container:hover > .search-input{
-    width: 400px;
+    width: 300px;
 }
 
 .search-container .search-input{

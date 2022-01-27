@@ -8,6 +8,7 @@ const SearchingField = ({onChange, placeholder}) =>{
             key= "key"
             id="search"
             type="search"
+            data-testid="search-name"
             placeholder=  {placeholder!== undefined ? placeholder : "searching"}
             onChange={event => onChange(event.target.value)}
         />

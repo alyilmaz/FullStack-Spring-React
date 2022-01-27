@@ -1,0 +1,13 @@
+.filter-component{
+    position: absolute;
+    padding-left: 20px;
+}
+
+.filter-component span{
+    float: left;
+    clear: none;
+}
+
+.table {
+    padding-top: 50px;
+}

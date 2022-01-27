@@ -36,6 +36,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   cursor: pointer;
 }
 
+button:disabled,
+button[disabled]{
+  color: rgb(126, 136, 151);
+}
+
 .pagination-groups div{
   float: left;
   clear: none; 
