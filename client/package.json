@@ -38,6 +38,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^8.0.2",
+    "cypress": "^9.3.1",
     "mini-css-extract-plugin": "2.4.5"
   }
 }

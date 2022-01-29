@@ -5,11 +5,11 @@ const DropDown = ({onChange, placeholder, options}) =>{
     return(
         <div>
             <span className="custom-dropdown">  
-                <select onChange={event => onChange(event.target.value)}>
-                    <option value="" disabled >{placeholder !== undefined ? placeholder : "options"}</option>
+                <select id = "select" onChange={event => onChange(event.target.value)}>
+                    <option key = "blank" value="" disabled >{placeholder !== undefined ? placeholder : "options"}</option>
                     {options?.map(op =>{
                         return(
-                        <option value={op.id}>{op.label}</option>
+                        <option key  = {op.id} value={op.id}>{op.label}</option>
                         )
                     })}           
                 </select>

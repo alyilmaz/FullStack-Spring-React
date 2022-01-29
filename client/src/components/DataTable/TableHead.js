@@ -15,9 +15,9 @@ const TableHead = ({order, orderBy, setOrder, setOrderBy, setPage,  columns}) =>
             const sortIcon = () => {
                 if (column.id === orderBy) {
                     if (order === 'asc') {
-                        return <i data-testid="up" className="arrow up"></i>
+                        return <i id = "up" className="arrow up"></i>
                     }
-                    return <i data-testid="down" className="arrow down"></i>
+                    return <i id= "down" className="arrow down"></i>
                 } else {
                     return '️-'
                 }
@@ -26,7 +26,7 @@ const TableHead = ({order, orderBy, setOrder, setOrderBy, setPage,  columns}) =>
     return (
       <th  data-testid="table-head"  key={column.id}>
         <span data-testid="label" >{column.label}</span>
-        {column.sortable?<span className="sort-button"><button data-testid="sort-button" onClick={() => handleRequestSort(column.id)}>{sortIcon()}</button></span>:null}
+        {column.sortable?<span className="sort-button"><button id = {column.id + "-sort"} data-testid="sort-button" onClick={() => handleRequestSort(column.id)}>{sortIcon()}</button></span>:null}
       </th>
     )
   })}

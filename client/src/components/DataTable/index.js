@@ -22,7 +22,7 @@ const index = ({columns, rows, rowsPerPage, totalPages, count, page, setPage, ta
                             <TableRow>
                                 {columns?.map((column) =>{
                                     return (
-                                        <TableCell data={row[column.id]} id={row.id}/>
+                                        <TableCell data={row[column.id]} id={column.id + index}/>
                                     )
                                 })}
                         </TableRow>)

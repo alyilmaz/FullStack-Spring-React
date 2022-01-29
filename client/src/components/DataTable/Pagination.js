@@ -15,7 +15,7 @@ const Pagination = ({ page, count, rowsPerPage, totalPages, setPage, setRowsPerP
       <button data-testid="button-last" className = "page-button last" disabled={page === totalPages-1} onClick={() => setPage(totalPages-1)}>Last</button>
     </div>
     <div className="page-size">
-    <select required onChange={event => {setRowsPerPage(event.target.value);setPage(0);}}>
+    <select id= "pageSize" required onChange={event => {setRowsPerPage(event.target.value);setPage(0);}}>
           <option data-testid="opt-1" value={5}>5</option>
           <option data-testid="opt-2" value={10}>10</option>
           <option data-testid="opt-3" value={15}>15</option>
@@ -23,12 +23,12 @@ const Pagination = ({ page, count, rowsPerPage, totalPages, setPage, setRowsPerP
      </select>
     </div>
     <div>
-    <p data-testid="text-page" >
+    <p id = "text-page"  >
         Page {page+1} of {totalPages}
       </p>
       </div>
       <div>
-      <p data-testid="text-rows" >
+      <p id="text-rows"  >
         Rows: {beginning === end ? end : `${beginning} - ${end}`} of {count}
       </p>
       </div>

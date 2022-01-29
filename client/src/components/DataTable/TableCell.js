@@ -2,7 +2,7 @@
 const TableCell = ({id, data}) =>{
 
     return(
-        <td role="cell" key={id}>
+        <td role="cell" key={id} id={id}>
             {data}
         </td>
     )
