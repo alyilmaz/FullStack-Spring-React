@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 describe("get pageable data", () =>{
     it("pageable button testing", () =>{
-        cy.visit("http://localhost:3000");  
+        cy.visit("/");  
 
         //verify enable and disbale pageable buttons
         cy.findByRole('button', {  name: /next/i}).should("be.enabled");
@@ -37,7 +37,7 @@ describe("get pageable data", () =>{
     });
 
     it("searching test", () =>{
-        cy.visit("http://localhost:3000");  
+        cy.visit("/");  
 
         //searching name
         cy.findByRole('searchbox').type("goofy_bohr");
@@ -59,7 +59,7 @@ describe("get pageable data", () =>{
     });
 
     it("status filter testing", () =>{
-        cy.visit("http://localhost:3000");  
+        cy.visit("/");  
 
         cy.get('select#select').select(3);
         //1 second to get updated data
@@ -91,7 +91,7 @@ describe("get pageable data", () =>{
                 });
               }
         }
-        cy.visit("http://localhost:3000"); 
+        cy.visit("/"); 
 
         cy.get('#id-sort').click();
 
@@ -131,7 +131,7 @@ describe("get pageable data", () =>{
                 });
               }
         }
-        cy.visit("http://localhost:3000"); 
+        cy.visit("/"); 
 
         cy.get('#name-sort').click();
 
@@ -171,7 +171,7 @@ describe("get pageable data", () =>{
                 });
               }
         }
-        cy.visit("http://localhost:3000"); 
+        cy.visit("/"); 
 
         cy.get('#createdOn-sort').click();
 
