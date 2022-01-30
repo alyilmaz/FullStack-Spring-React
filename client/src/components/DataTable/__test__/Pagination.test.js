@@ -12,6 +12,14 @@ test("initial button status", () =>{
     expect(screen.getByTestId("button-last")).toBeEnabled();
 })
 
+test("initial button background color check", () =>{
+    render(<Pagination page={0} count={15} rowsPerPage={5} totalPages={3} />);
+    expect(screen.getByTestId("button-first")).toHaveStyle(`color: GrayText`);
+    expect(screen.getByTestId("button-prev")).toHaveStyle(`color: GrayText`);
+    expect(screen.getByTestId("button-next")).toHaveStyle(`color: ButtonText`);
+    expect(screen.getByTestId("button-last")).toHaveStyle(`color: ButtonText`);
+})
+
 test("check the buttons status at end of the page", () =>{
     render(<Pagination page={2} count={15} rowsPerPage={5} totalPages={3} />);
     expect(screen.getByTestId("button-first")).toBeEnabled();
@@ -19,6 +27,23 @@ test("check the buttons status at end of the page", () =>{
     expect(screen.getByTestId("button-next")).toBeDisabled();
     expect(screen.getByTestId("button-last")).toBeDisabled();
 })
+
+test("button background color check at the end", () =>{
+    render(<Pagination page={2} count={15} rowsPerPage={5} totalPages={3} />);
+    expect(screen.getByTestId("button-first")).toHaveStyle(`color: ButtonText`);
+    expect(screen.getByTestId("button-prev")).toHaveStyle(`color: ButtonText`);
+    expect(screen.getByTestId("button-next")).toHaveStyle(`color: GrayText`);
+    expect(screen.getByTestId("button-last")).toHaveStyle(`color: GrayText`);
+})
+
+test("button background color check at the middle", () =>{
+    render(<Pagination page={1} count={15} rowsPerPage={5} totalPages={3} />);
+    expect(screen.getByTestId("button-first")).toHaveStyle(`color: ButtonText`);
+    expect(screen.getByTestId("button-prev")).toHaveStyle(`color: ButtonText`);
+    expect(screen.getByTestId("button-next")).toHaveStyle(`color: ButtonText`);
+    expect(screen.getByTestId("button-last")).toHaveStyle(`color: ButtonText`);
+})
+
 
 test("check the value of page and rows data", () =>{
     render(<Pagination page={0} count={15} rowsPerPage={5} totalPages={3} />);
