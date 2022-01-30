@@ -18,6 +18,20 @@ For spring boot application:
   yarn start
   ```
   
+  For unit testing:
+   ```sh
+  yarn test
+  ```
+  
+  For e2e testing(cypress) after running application:
+   ```sh
+  yarn cypress run 
+  ```
+  or
+  
+  ```sh
+  yarn cypress run open
+  ```
   
 ## For Docker platform
 
