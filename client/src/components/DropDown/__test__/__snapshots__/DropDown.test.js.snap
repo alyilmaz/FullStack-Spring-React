@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create snaphot 1`] = `
+<div>
+  <span
+    className="custom-dropdown"
+  >
+    <select
+      id="select"
+      onChange={[Function]}
+    >
+      <option
+        disabled={true}
+        value=""
+      >
+        Status
+      </option>
+      <option
+        value="all"
+      >
+        All
+      </option>
+      <option
+        value="COMPLETED"
+      >
+        COMPLETED
+      </option>
+      <option
+        value="ERROR"
+      >
+        ERROR
+      </option>
+      <option
+        value="CANCELED"
+      >
+        CANCELED
+      </option>
+    </select>
+  </span>
+</div>
+`;

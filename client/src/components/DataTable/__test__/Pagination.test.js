@@ -1,6 +1,7 @@
 /* eslint-disable testing-library/no-node-access */
 import {render, screen} from "@testing-library/react";
 import Pagination from "../Pagination";
+import renderer from 'react-test-renderer';
 
 
 test("initial button status", () =>{
@@ -37,4 +38,11 @@ test("check the all option values", () =>{
     expect(screen.getByTestId("opt-2").textContent).toEqual("10");
     expect(screen.getByTestId("opt-3").textContent).toEqual("15");
     expect(screen.getByTestId("opt-4").textContent).toEqual("20");
+})
+
+test("create snapshot", () =>{
+    const tree = renderer
+                    .create(<Pagination page={1} count={17} rowsPerPage={4} totalPages={5} />)
+                    .toJSON();
+    expect(tree).toMatchSnapshot();
 })

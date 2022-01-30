@@ -1,5 +1,6 @@
 /* eslint-disable testing-library/no-node-access */
 import {render, screen} from "@testing-library/react";
+import renderer from 'react-test-renderer';
 import DropDown from "../DropDown";
 
 const options = [{id:"all", label:"All"}, {id:"COMPLETED", label:"COMPLETED"},{id:"ERROR", label:"ERROR"},{id:"CANCELED", label:"CANCELED"}];
@@ -38,4 +39,11 @@ test("all opitons should be enabled except status", () =>{
     expect(screen.getByText("COMPLETED")).toBeEnabled();
     expect(screen.getByText("ERROR")).toBeEnabled();
     expect(screen.getByText("CANCELED")).toBeEnabled();
+})
+
+test("create snaphot", () =>{
+    const tree = renderer
+                    .create(<DropDown placeholder={"Status"} options={options}/>)
+                    .toJSON();
+    expect(tree).toMatchSnapshot();
 })
