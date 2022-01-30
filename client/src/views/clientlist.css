@@ -1,11 +1,14 @@
 .filter-component{
     position: absolute;
-    padding-left: 20px;
 }
 
 .filter-component span{
     float: left;
     clear: none;
+}
+
+.filter-component .search{
+    margin-left: 50px;
 }
 
 .table {

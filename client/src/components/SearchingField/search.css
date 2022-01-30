@@ -1,41 +1,19 @@
-
-.search-container{
-    background-color: white;
-    border: 1px solid rgb(0, 26, 255);
-    height: 20px;
-    width: 150px;
-    border-radius: 10px;
-    padding: 10px 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.8s;
+.search-input {
+  width: 200px;
+  height: 45px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('../../../public/search.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+  background-size: 20px;
 }
 
-.search-container:hover > .search-input{
-    width: 300px;
-}
-
-.search-container .search-input{
-    background: transparent;
-    border: none;
-    outline:none;
-    width: 0px;
-    font-weight: 500;
-    font-size: 16px;
-    transition: 0.8s;
-
-}
-
-
-@keyframes hoverShake {
-  0% {transform: skew(0deg,0deg);}
-  25% {transform: skew(5deg, 5deg);}
-  75% {transform: skew(-5deg, -5deg);}
-  100% {transform: skew(0deg,0deg);}
-}
-
-.search-container:hover{
-  animation: hoverShake 0.25s linear 3;
+.search-input:focus {
+  width: 250px;
 }

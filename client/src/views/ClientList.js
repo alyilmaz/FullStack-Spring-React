@@ -51,12 +51,12 @@ export default function ClientList() {
     <div className="item4">
       <div className="container">
       <div className="filter-component">
-        <span>
-          <SearchingField placeholder= "Searching Name.." onChange={(event) => {setSearchByName(event); setPage(0); }}/>
-        </span> 
-        <span>
+      <span>
           <DropDown  onChange= {(event) =>{setFilterByStatus(event); setPage(0)}} placeholder = "STATUS  " options = {statusOptions}/>
         </span>
+        <span className="search">
+          <SearchingField placeholder= "Searching Name.." onChange={(event) => {setSearchByName(event); setPage(0); }}/>
+        </span> 
       </div>
       <div className="table">
       <DataTable columns={headCells} rows={rows} rowsPerPage={rowsPerPage} totalPages={receivedData.totalPages}
