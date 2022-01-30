@@ -12,17 +12,17 @@ const index = ({columns, rows, rowsPerPage, totalPages, count, page, setPage, ta
                 order, orderBy, setOrderBy, setOrder, setRowsPerPage }) =>{
     
     return(
-        <div class="table-container" >
+        <div className="table-container" >
             <Table>
                 <TableHead setPage={setPage} order={order} columns={columns}
                                 orderBy={orderBy} setOrder={setOrder}  setOrderBy={setOrderBy} />
                 <TableBody>
                     {rows?.map((row, index) =>{
                         return( 
-                            <TableRow>
+                            <TableRow key = {index}>
                                 {columns?.map((column) =>{
                                     return (
-                                        <TableCell data={row[column.id]} id={column.id + index}/>
+                                        <TableCell key = {column.id + index} data={row[column.id]} id={column.id + index}/>
                                     )
                                 })}
                         </TableRow>)
