@@ -28,7 +28,8 @@ For spring boot application:
   yarn cypress run 
   ```
   or
-     ```sh
+  
+  ```sh
   yarn cypress run open
   ```
   
