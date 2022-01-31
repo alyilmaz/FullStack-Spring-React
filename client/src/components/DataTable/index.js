@@ -8,7 +8,7 @@ import Table from "./Table";
 
 
 
-const index = ({columns, rows, rowsPerPage, totalPages, count, page, setPage, tableName, 
+const index = ({columns, rows, rowsPerPage, totalPages, count, page, setPage, 
                 order, orderBy, setOrderBy, setOrder, setRowsPerPage }) =>{
     
     return(
