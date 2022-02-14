@@ -1,0 +1,16 @@
+.filter-component{
+    position: absolute;
+}
+
+.filter-component span{
+    float: left;
+    clear: none;
+}
+
+.filter-component .search{
+    margin-left: 50px;
+}
+
+.table {
+    padding-top: 50px;
+}

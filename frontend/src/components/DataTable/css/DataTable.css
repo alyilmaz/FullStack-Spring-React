@@ -1,0 +1,86 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    max-width: 150px;
+    min-width: 100px;
+    max-height: 20px;
+    min-height: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+  
+  tr:hover {background-color: rgb(199, 201, 197);}
+  
+  .table-container {
+    overflow-x:auto;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  
+  .page-button {
+    background-color: #ffffff; /* Green */
+    border: none;
+    color: rgb(25, 84, 172);
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  button:disabled,
+  button[disabled]{
+    color: rgb(126, 136, 151);
+  }
+  
+  .pagination-groups div{
+    float: left;
+    clear: none; 
+  }
+  
+  .page-size select{
+    height: 30px;
+    font-size: 16px;
+    color: rgb(25, 84, 172);;
+    border: none;
+  }
+  
+  .pagination-groups div p{
+    margin-top: 8px;
+    margin-left: 40px;
+    font-weight: bold;
+    color: rgb(107, 106, 105);
+    font-size: 12px;
+  }
+  
+  
+  
+  .sort-button button{
+    background-color: #ffffff; /* Green */
+    border: none;
+  }
+  
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
