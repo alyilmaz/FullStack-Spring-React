@@ -1,8 +1,8 @@
 import "./dropdown.css";
 
 interface Props{
-    placeholder: string,
-    options: Options[],
+    placeholder?: string,
+    options?: Options[],
     onChange(e:React.ChangeEvent<HTMLSelectElement>): void;
 }
 

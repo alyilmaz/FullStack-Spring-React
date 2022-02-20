@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create snapshot 1`] = `
+<table>
+  <thead>
+    <tr
+      data-testid="row"
+    >
+      <th
+        data-testid="table-head"
+      >
+        <span
+          data-testid="label"
+        >
+          ID
+        </span>
+        <span
+          className="sort-button"
+        >
+          <button
+            data-testid="sort-button"
+            id="id-sort"
+            onClick={[Function]}
+          >
+            ️-
+          </button>
+        </span>
+      </th>
+      <th
+        data-testid="table-head"
+      >
+        <span
+          data-testid="label"
+        >
+          Status
+        </span>
+        <span
+          className="sort-button"
+        >
+          <button
+            data-testid="sort-button"
+            id="status-sort"
+            onClick={[Function]}
+          >
+            <i
+              className="arrow down"
+              id="down"
+            />
+          </button>
+        </span>
+      </th>
+    </tr>
+  </thead>
+</table>
+`;

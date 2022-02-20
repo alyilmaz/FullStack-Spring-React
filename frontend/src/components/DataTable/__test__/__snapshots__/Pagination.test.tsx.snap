@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create snapshot 1`] = `
+<div
+  className="pagination-groups"
+>
+  <div
+    className="pagination"
+  >
+    <button
+      className="page-button first"
+      data-testid="button-first"
+      disabled={false}
+      onClick={[Function]}
+    >
+      First
+    </button>
+    <button
+      className="page-button prev"
+      data-testid="button-prev"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Previous
+    </button>
+    <button
+      className="page-button next"
+      data-testid="button-next"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next
+    </button>
+    <button
+      className="page-button last"
+      data-testid="button-last"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Last
+    </button>
+  </div>
+  <div
+    className="page-size"
+  >
+    <select
+      id="pageSize"
+      onChange={[Function]}
+      required={true}
+    >
+      <option
+        data-testid="opt-1"
+        value={5}
+      >
+        5
+      </option>
+      <option
+        data-testid="opt-2"
+        value={10}
+      >
+        10
+      </option>
+      <option
+        data-testid="opt-3"
+        value={15}
+      >
+        15
+      </option>
+      <option
+        data-testid="opt-4"
+        value={20}
+      >
+        20
+      </option>
+    </select>
+  </div>
+  <div>
+    <p
+      id="text-page"
+    >
+      Page 
+      2
+       of 
+      5
+    </p>
+  </div>
+  <div>
+    <p
+      id="text-rows"
+    >
+      Rows: 
+      5 - 8
+       of 
+      17
+    </p>
+  </div>
+</div>
+`;

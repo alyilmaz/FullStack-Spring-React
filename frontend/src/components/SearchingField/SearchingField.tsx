@@ -1,7 +1,7 @@
 import "./search.css"
 
 interface Props{
-    placeholder: string,
+    placeholder?: string,
     onChange(e:React.ChangeEvent<HTMLInputElement>): void;
 }
 
