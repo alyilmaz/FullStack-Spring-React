@@ -1,0 +1,7 @@
+{
+    "scripts": {
+      "build": "tsc",
+      "lint": "tsc --project tsconfig.lint.json",
+      "lint:cypress": "tsc --project cypress/tsconfig.json"
+    }
+  }

@@ -42,7 +42,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^8.0.2",
     "@types/react-test-renderer": "^17.0.1",
-    "@types/uuid": "^8.3.4"
+    "@types/uuid": "^8.3.4",
+    "cypress": "^9.5.0"
   }
 }
