@@ -2,7 +2,7 @@ import "./search.css"
 
 interface Props{
     placeholder?: string,
-    onChange(e:React.ChangeEvent<HTMLInputElement>): void;
+    onChange?: (e:React.ChangeEvent<HTMLInputElement>)=>void;
 }
 
 
@@ -16,7 +16,7 @@ const SearchingField = (props:Props) =>{
             id="search"
             type="search"
             placeholder=  {props.placeholder!== undefined ? props.placeholder : "searching"}
-            onChange={event => props.onChange(event)}
+            onChange={event => props.onChange && props.onChange(event)}
         />
         </div>
     )
